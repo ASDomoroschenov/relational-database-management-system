@@ -1,0 +1,14 @@
+ADD_POOL pool_1
+ADD_SCHEME pool_1 scheme_1
+ADD_COLLECTION pool_1 scheme_1 collection_1
+ADD pool_1 scheme_1 collection_1
+1
+1
+testing
+Domoroschenov
+Alexandr
+Sergeevich
+ASDomoroschenov@mail.ru
++79687175030
+No
+08.05.2023

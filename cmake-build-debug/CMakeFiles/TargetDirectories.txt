@@ -1,0 +1,3 @@
+/home/alexandr/coursework/cmake-build-debug/CMakeFiles/coursework.dir
+/home/alexandr/coursework/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/alexandr/coursework/cmake-build-debug/CMakeFiles/rebuild_cache.dir

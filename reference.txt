@@ -1,0 +1,364 @@
+(*) AVAILABLE ALLOCATORS:
+
+        allocator_list
+        allocator_descriptor
+        allocator_buddies
+        
+(**) AVAILABLE TREES:
+
+        RED_BLACK_TREE
+        AVL_TREE
+        SPLAY_TREE
+        
+(***) AVAILABLE VALUES FOR COMMANDS GET:
+
+        USER_ID_DELIVERY_ID
+        DESCRIPTION
+        SURNAME
+        NAME
+        PATRONYMIC
+        MAIL
+        PHONE
+        COMMENT
+        DATETIME
+        
+(****) AVAILABLE VALUES FOR COMMAND UPDATE:
+
+        DESCRIPTION
+        SURNAME
+        NAME
+        PATRONYMIC
+        MAIL
+        PHONE
+        COMMENT
+        DATETIME
+        
+        
+        
+        
+        
+COMMANDS:
+
+
+NAME
+
+        ADD_POOL - add pool
+
+SYNOPSIS
+
+        console: ADD_POOL [new_pool_name]
+        
+        file: ADD_POOL [new_pool_name]
+              ALLOCATOR: [name_allocator]... (*)
+              
+INPUT_EXAMPLE_CONSOLE:
+
+        ADD_POOL pool
+
+INPUT_EXAMPLE_FILE:
+
+        ADD_POOL pool
+        ALLOCATOR: allocator_list
+
+
+DESCRIPTION
+
+        Adds a pool that stores data schemas
+
+
+
+NAME
+
+        REMOVE_POOL - remove pool
+
+SYNOPSIS
+
+        console: REMOVE_POOL [pool_name]
+
+        file: REMOVE_POOL [pool_name]
+        
+INPUT_EXAMPLE_CONSOLE:
+
+        REMOVE_POOL pool
+
+INPUT_EXAMPLE_FILE:
+
+        REMOVE_POOL pool
+
+DESCRIPTION
+
+        Removes a pool that stores data schemas
+        
+        
+
+NAME
+
+        ADD_SCHEME - add scheme to pool
+
+SYNOPSIS
+        
+        console: ADD_SCHEME [pool_name] [new_scheme_name]
+        
+        file: ADD_SCHEME [pool_name] [new_scheme_name]
+        
+INPUT_EXAMPLE_CONSOLE:
+
+        ADD_SCHEME pool scheme
+
+INPUT_EXAMPLE_FILE:
+
+        ADD_SCHEME pool scheme
+        
+DESCRIPTION
+
+        Adds a schema to the pool that stores collections of data
+        
+        
+        
+NAME
+
+        REMOVE_SCHEME - remove scheme from pool
+        
+SYNOPSIS
+        
+        console: REMOVE_SCHEME [pool_name] [scheme_name]
+        
+        file: REMOVE_SCHEME [pool_name] [scheme_name]
+        
+INPUT_EXAMPLE_CONSOLE:
+
+        REMOVE_SCHEME pool scheme
+
+INPUT_EXAMPLE_FILE:
+
+        REMOVE_SCHEME pool scheme
+        
+DESCRIPTION
+
+        Removes a schema from the pool that stores collections of data
+        
+        
+
+NAME
+
+        ADD_COLLECTION - add collection to scheme
+
+SYNOPSIS
+
+        console: ADD_COLLECTION [pool_name] [scheme_name] [new_collection_name]
+        
+        file: ADD_COLLECTION [pool_name] [scheme_name] [new_collection_name]
+              TREE: [name_tree_collection]... (**)
+              
+INPUT_EXAMPLE_CONSOLE:
+
+        ADD_COLLECTION pool scheme collection
+
+INPUT_EXAMPLE_FILE:
+
+        ADD_COLLECTION pool scheme collection
+        TREE: AVL_TREE
+
+DESCRIPTION
+
+        Adds a new collection to the data schema
+        
+      
+      
+NAME
+
+        REMOVE_COLLECTION - remove collection from scheme
+
+SYNOPSIS
+
+        console: REMOVE_COLLECTION [pool_name] [scheme_name] [collection_name]
+        
+        file: REMOVE_COLLECTION [pool_name] [scheme_name] [collection_name]
+        
+INPUT_EXAMPLE_CONSOLE:
+
+        REMOVE_COLLECTION pool scheme collection
+
+INPUT_EXAMPLE_FILE:
+
+        REMOVE_COLLECTION pool scheme collection
+
+DESCRIPTION
+
+        Removes collection from the data schema
+        
+        
+        
+NAME
+
+        ADD - add object to collection
+
+SYNOPSIS
+
+        console: ADD [pool_name] [scheme_name] [collection_name]
+        
+        file: ADD [pool_name] [scheme_name] [collection_name]
+              USER_ID: [id_user]
+              DELIVERY_ID: [id_delivery]
+              DESCRIPTION: [description]
+              SURNAME: [surname]
+              NAME: [name]
+              PATRONYMIC: [patronymic]
+              MAIL: [mail]
+              PHONE: [phone]
+              COMMENT: [comment]
+              DATETIME: [datetime]
+              
+INPUT_EXAMPLE_CONSOLE:
+
+        ADD pool scheme collection
+
+INPUT_EXAMPLE_FILE:
+
+        ADD pool scheme collection
+        USER_ID: example
+        DELIVERY_ID: example
+        DESCRIPTION: example
+        SURNAME: example
+        NAME: example
+        PATRONYMIC: example
+        MAIL: example
+        PHONE: example
+        COMMENT: example
+        DATETIME: example
+
+DESCRIPTION
+
+        Adds a new object to given collection
+        
+
+
+NAME
+
+        UPDATE - Update object from collection
+
+SYNOPSIS
+
+        console: UPDATE [pool_name] [scheme_name] [collection_name]
+        
+        file: UPDATE [pool_name] [scheme_name] [collection_name]
+              USER_ID: [id_user]
+              DELIVERY_ID: [id_delivery]
+              [enumeration_of_fields_and_new_values]... (****)
+              STOP_UPDATE
+              
+INPUT_EXAMPLE_CONSOLE:
+
+        UPDATE pool scheme collection
+
+INPUT_EXAMPLE_FILE:
+
+        UPDATE pool scheme collection
+        USER_ID: example
+        DELIVERY_ID: example
+        NAME: new_example
+        DESRCIPTION: new_example
+        STOP_UPDATE
+        
+
+DESCRIPTION
+
+        Update an object from given collection
+        
+        
+        
+NAME
+
+        GET - get object from collection
+
+SYNOPSIS
+
+        console: GET [pool_name] [scheme_name] [collection_name]
+        
+        file: GET [pool_name] [scheme_name] [collection_name]
+              [name_of_the_field_to_search_for]... (***)
+              [name_field]: [value_field]
+              
+INPUT_EXAMPLE_CONSOLE:
+
+        GET pool scheme collection
+
+INPUT_EXAMPLE_FILE:
+
+        GET pool scheme collection
+        USER_ID_DELIVERY_ID
+        USER_ID: example
+        DELIVERY_ID: example
+        
+        GET pool scheme collection
+        DESCRIPTION
+        DESCRIPTION: example
+              
+DESCRIPTION
+
+        Gets a object from given collection
+        
+        
+        
+NAME
+        
+        GET_RNAME - get object in range from collection
+
+SYNOPSIS
+
+        console: GET_RANGE [pool_name] [scheme_name] [collection_name]
+        
+        file: GET_RANGE [pool_name] [scheme_name] [collection_name]
+              [name_of_the_field_to_search_for]... (***)
+              [name_field]: [value_field_of_lower_bound]
+              [name_field]: [value_field_of_upper_bound]
+              
+INPUT_EXAMPLE_CONSOLE:
+
+        GET_RANGE pool scheme collection
+
+INPUT_EXAMPLE_FILE:
+
+        GET_RANGE pool scheme collection
+        USER_ID_DELIVERY_ID
+        USER_ID: example_lower
+        DELIVERY_ID: example_lower
+        USER_ID: example_upper
+        DELIVERY_ID: example_upper
+        
+        GET_RANGE pool scheme collection
+        DESCRIPTION
+        DESCRIPTION: example_lower
+        DESCRIPTION: exmaple_upper
+              
+DESCRIPTION
+
+        Gets a object in range from given collection
+        
+        
+
+NAME
+
+        REMOVE - remove object from collection
+        
+SYNOPSIS
+
+        console: REMOVE [pool_name] [scheme_name] [collection_name]
+        
+        file: REMOVE [pool_name] [scheme_name] [collection_name]
+              USER_ID: [id_user]
+              DELIVERY_ID: [id_delivery]
+             
+INPUT_EXAMPLE_CONSOLE:
+
+        REMOVE pool scheme collection
+             
+INPUT_EXAMPLE_FILE:
+
+        REMOVE pool scheme collection
+        USER_ID: example
+        DELIVERY_ID: example
+        
+DESCRIPTION
+
+        Removes an object from given collection
