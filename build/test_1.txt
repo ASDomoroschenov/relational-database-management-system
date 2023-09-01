@@ -25,7 +25,14 @@ MAIL: ASDomoroschenov@mail.ru
 PHONE: +79687175030
 COMMENT: No
 DATETIME: 08/05/2023-23:08:00
-GET pool_1 scheme_1 collection_1
-DESCRIPTION
+ADD pool_1 scheme_1 collection_1
+USER_ID: 3
+DELIVERY_ID: 3
 DESCRIPTION: test
-CURRENT
+SURNAME: Domoroschenov
+NAME: Alexandr
+PATRONYMIC: Sergeevich
+MAIL: ASDomoroschenov@mail.ru
+PHONE: +79687175030
+COMMENT: No
+DATETIME: 08/05/2023-23:08:00

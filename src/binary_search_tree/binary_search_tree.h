@@ -845,6 +845,14 @@ bool binary_search_tree<tkey, tvalue, tkey_comparer>::bin_find_template_method::
 {
     if (subtree_address == nullptr)
     {
+        if (!path_to_subtree_root_exclusive.empty())
+        {
+            bin_node **last_node = path_to_subtree_root_exclusive.top();
+            path_to_subtree_root_exclusive.pop();
+
+            after_find_inner(target_key_and_result_value, *last_node, path_to_subtree_root_exclusive);
+        }
+
         return false;
     }
 
@@ -868,10 +876,8 @@ bool binary_search_tree<tkey, tvalue, tkey_comparer>::bin_find_template_method::
 
     bin_node *next_bin_node = res_functor > 0 ? subtree_address->right_subtree : subtree_address->left_subtree;
     path_to_subtree_root_exclusive.push(&subtree_address);
-    bool result_find = find_inner(target_key_and_result_value, next_bin_node, path_to_subtree_root_exclusive);
-    after_find_inner(target_key_and_result_value, subtree_address, path_to_subtree_root_exclusive);
 
-    return result_find;
+    return find_inner(target_key_and_result_value, next_bin_node, path_to_subtree_root_exclusive);
 }
 
 

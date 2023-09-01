@@ -1,0 +1,16 @@
+[09/01/2023 22:01:55] [INFORMATION] RUN command called
+[09/01/2023 22:01:55] [INFORMATION] ADD_POOL command called
+[09/01/2023 22:01:55] [INFORMATION] Successful command execution
+[09/01/2023 22:01:55] [INFORMATION] ADD_SCHEME command called
+[09/01/2023 22:01:55] [INFORMATION] Successful command execution
+[09/01/2023 22:01:55] [INFORMATION] ADD_COLLECTION command called
+[09/01/2023 22:01:55] [INFORMATION] Successful command execution
+[09/01/2023 22:01:55] [INFORMATION] ADD command called
+[09/01/2023 22:01:55] [INFORMATION] Successful command execution
+[09/01/2023 22:01:55] [INFORMATION] ADD command called
+[09/01/2023 22:01:55] [INFORMATION] Successful command execution
+[09/01/2023 22:01:55] [INFORMATION] ADD command called
+[09/01/2023 22:01:55] [INFORMATION] Successful command execution
+[09/01/2023 22:01:55] [INFORMATION] Successful command execution
+[09/01/2023 22:01:57] [INFORMATION] Deleting handler
+[09/01/2023 22:01:57] [INFORMATION] Handler is deleted

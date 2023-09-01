@@ -396,7 +396,7 @@ splay_tree<tkey, tvalue, tkey_comparer>::splay_tree(
                 new splay_removing_template_method(this),
                 allocator_binary_search_tree,
                 logger_tree,
-                this->_root)
+                nullptr)
 {
 
 }

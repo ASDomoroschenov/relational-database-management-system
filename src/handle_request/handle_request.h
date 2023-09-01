@@ -21,8 +21,8 @@ public:
     enum class TREE
     {
         RED_BLACK_TREE,
-        AVL_TREE,
-        SPLAY_TREE
+        SPLAY_TREE,
+        AVL_TREE
     };
 
 private:
